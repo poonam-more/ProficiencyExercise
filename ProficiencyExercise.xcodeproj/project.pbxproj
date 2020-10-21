@@ -21,6 +21,7 @@
 		8ADA07DA253F05CD004576C4 /* ProficiencyExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07D9253F05CD004576C4 /* ProficiencyExerciseTests.swift */; };
 		8ADA07E5253F05CD004576C4 /* ProficiencyExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07E4253F05CD004576C4 /* ProficiencyExerciseUITests.swift */; };
 		8ADA07F6253F07AE004576C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07F5253F07AE004576C4 /* Constants.swift */; };
+		8AF097B625406697009085DF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF097B525406697009085DF /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8ADA07E4253F05CD004576C4 /* ProficiencyExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencyExerciseUITests.swift; sourceTree = "<group>"; };
 		8ADA07E6253F05CD004576C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ADA07F5253F07AE004576C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8AF097B525406697009085DF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				8AAD7F4D253FF73400C7961F /* Utils.swift */,
+				8AF097B525406697009085DF /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				8AAD7F51253FF86B00C7961F /* FactsViewModel.swift in Sources */,
 				8ADA07C3253F05CA004576C4 /* AppDelegate.swift in Sources */,
 				8ADA07C5253F05CA004576C4 /* SceneDelegate.swift in Sources */,
+				8AF097B625406697009085DF /* Reachability.swift in Sources */,
 				8ADA07F6253F07AE004576C4 /* Constants.swift in Sources */,
 				8AAD7F46253FF57500C7961F /* FactsTableViewCell.swift in Sources */,
 				8AAD7F4E253FF73400C7961F /* Utils.swift in Sources */,
