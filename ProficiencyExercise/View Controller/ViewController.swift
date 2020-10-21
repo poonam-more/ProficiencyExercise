@@ -10,41 +10,68 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let tableView = UITableView()
+    let factsTableView = UITableView()
     var safeArea: UILayoutGuide!
+    var factsList = [FactsViewModel]()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //UI Initialization
+        view.backgroundColor = .white
+        safeArea = view.layoutMarginsGuide
         setupTableView()
+        fetchData()
+        
     }
 
 
     // MARK: -Set up TableView
     func setupTableView()
     {
-        view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
+        view.addSubview(factsTableView)
+        factsTableView.dataSource = self
+        factsTableView.delegate = self
+        factsTableView.register(FactsTableViewCell.self, forCellReuseIdentifier: Constants.reuseIdOfTableView)
         
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        factsTableView.translatesAutoresizingMaskIntoConstraints = false
+        factsTableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        factsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        factsTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
+        factsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+    
+    
+    //MARK: - Fetch data
+    func fetchData() {
+        let utils = Utils()
+        utils.parseJson(completionHandler: {
+            data,title  in
+            if data != nil
+            {
+                self.factsList = data?.map({return FactsViewModel(rows: $0)}) ?? []
+                DispatchQueue.main.async {
+                    self.title = title
+                    self.factsTableView.reloadData()
+                }
+            }
+        })
     }
 }
 
 // MARK: - TableView Delegate and DataSource Methods
 extension ViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return factsList.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       return UITableViewCell()
+        let currentRow = factsList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIdOfTableView, for: indexPath) as! FactsTableViewCell
+        cell.selectionStyle = .none
+        cell.factViewModel = currentRow
+        return cell
+        
     }
     
 }
