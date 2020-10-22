@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var safeArea: UILayoutGuide!
     var factsList = [FactsViewModel]()
     var refreshControl = UIRefreshControl()
+    var indicator: UIActivityIndicatorView!
+
 
 
     //MARK: -Life Cycle methods
@@ -24,11 +26,12 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         setupTableView()
-        
+        setUpProgress()
+
         if Reachability.isConnectedToNetwork(){
             fetchData()
         }else{
-            showAlertMessage("No internet connection.")
+            setUpAlertMessage("No internet connection.")
         }
         
     }
@@ -37,6 +40,7 @@ class ViewController: UIViewController {
     // MARK: -Set up TableView
     func setupTableView()
     {
+        //TableView initialization
         view.addSubview(factsTableView)
         factsTableView.dataSource = self
         factsTableView.delegate = self
@@ -48,7 +52,7 @@ class ViewController: UIViewController {
         factsTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
         factsTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-        
+        //Pull to refresh control initialization
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         factsTableView.addSubview(refreshControl)
@@ -59,22 +63,33 @@ class ViewController: UIViewController {
         if Reachability.isConnectedToNetwork(){
             fetchData()
         }else{
-            showAlertMessage("No internet connection.")
+            setUpAlertMessage("No internet connection.")
             self.refreshControl.endRefreshing()
 
         }
     }
     
-    //MARK: -Alert Message
-    func showAlertMessage(_ message:String){
+    //MARK: -Setup Alert Message
+    func setUpAlertMessage(_ message:String){
         let alert = UIAlertController(title: "Proficiency Exercise", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     
     }
     
-    //MARK: - Fetch data
+    //MARK: -Setup Progress
+    func setUpProgress() {
+        indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        indicator.center = view.center
+        self.view.addSubview(indicator)
+        self.view.bringSubviewToFront(indicator)
+    }
+    
+    //MARK: - Fetch data from API
     func fetchData() {
+        
+        indicator.startAnimating()
         let utils = Utils()
         utils.parseJson(completionHandler: {
             data,title  in
@@ -85,6 +100,7 @@ class ViewController: UIViewController {
                     self.title = title
                     self.factsTableView.reloadData()
                     self.refreshControl.endRefreshing()
+                    self.indicator.stopAnimating()
                 }
             }
         })

@@ -1,15 +1,14 @@
 //
-//  ProficiencyExerciseTests.swift
+//  FetchDataTest.swift
 //  ProficiencyExerciseTests
 //
-//  Created by Poonam More on 20/10/20.
+//  Created by Poonam More on 22/10/20.
 //  Copyright © 2020 Poonam More. All rights reserved.
 //
 
 import XCTest
-@testable import ProficiencyExercise
 
-class ProficiencyExerciseTests: XCTestCase {
+class FetchDataTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,11 +30,20 @@ class ProficiencyExerciseTests: XCTestCase {
         }
     }
     
-    func testFactsViewModel() {
-        let facts = Rows(title: "Housing", description: "Warmer than you might you think", imageHref: "")
-        let factsViewModel = FactsViewModel(rows: facts)
-        XCTAssertEqual(facts.title,factsViewModel.factTitle)
-        XCTAssertEqual(facts.description, factsViewModel.factDescription)
+    func testFetchData() {
+        let utils = Utils()
+
+        let exp = expectation(description: "server fetch")
+        utils.parseJson(completionHandler: {
+            data, title in
+            XCTAssertTrue(data!.count > 0, "Data shouldn't be empty")
+            exp.fulfill()
+        })
+        
+        waitForExpectations(timeout: 15, handler: {
+            (errors) in
+            print(errors?.localizedDescription as Any)
+        })
     }
 
 }

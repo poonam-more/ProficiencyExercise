@@ -22,6 +22,30 @@
 		8ADA07E5253F05CD004576C4 /* ProficiencyExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07E4253F05CD004576C4 /* ProficiencyExerciseUITests.swift */; };
 		8ADA07F6253F07AE004576C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07F5253F07AE004576C4 /* Constants.swift */; };
 		8AF097B625406697009085DF /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF097B525406697009085DF /* Reachability.swift */; };
+		8AFBEF2C254148940031BB32 /* ViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFBEF2B254148940031BB32 /* ViewControllerTestCase.swift */; };
+		8AFBEF2D25414EA90031BB32 /* FactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F50253FF86B00C7961F /* FactsViewModel.swift */; };
+		8AFBEF2E25414EAA0031BB32 /* FactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F50253FF86B00C7961F /* FactsViewModel.swift */; };
+		8AFBEF2F25414F760031BB32 /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F53253FF8C100C7961F /* FactsModel.swift */; };
+		8AFBEF3025414F770031BB32 /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F53253FF8C100C7961F /* FactsModel.swift */; };
+		8AFBEF3125414F920031BB32 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F4D253FF73400C7961F /* Utils.swift */; };
+		8AFBEF3225414F930031BB32 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F4D253FF73400C7961F /* Utils.swift */; };
+		8AFBEF3325414F960031BB32 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF097B525406697009085DF /* Reachability.swift */; };
+		8AFBEF3425414F970031BB32 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF097B525406697009085DF /* Reachability.swift */; };
+		8AFBEF3525414F9B0031BB32 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F48253FF66D00C7961F /* UIView+Extension.swift */; };
+		8AFBEF3625414F9B0031BB32 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F48253FF66D00C7961F /* UIView+Extension.swift */; };
+		8AFBEF3725414F9E0031BB32 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F4A253FF6A100C7961F /* UIImageView.swift */; };
+		8AFBEF3825414F9F0031BB32 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F4A253FF6A100C7961F /* UIImageView.swift */; };
+		8AFBEF3925414FA20031BB32 /* FactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F45253FF57500C7961F /* FactsTableViewCell.swift */; };
+		8AFBEF3A25414FA30031BB32 /* FactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F45253FF57500C7961F /* FactsTableViewCell.swift */; };
+		8AFBEF3B25414FA60031BB32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07F5253F07AE004576C4 /* Constants.swift */; };
+		8AFBEF3C25414FA70031BB32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07F5253F07AE004576C4 /* Constants.swift */; };
+		8AFBEF3D25414FAB0031BB32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C6253F05CA004576C4 /* ViewController.swift */; };
+		8AFBEF3E25414FAC0031BB32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C6253F05CA004576C4 /* ViewController.swift */; };
+		8AFBEF3F25414FB10031BB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C4253F05CA004576C4 /* SceneDelegate.swift */; };
+		8AFBEF4025414FB20031BB32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C4253F05CA004576C4 /* SceneDelegate.swift */; };
+		8AFBEF4125414FB60031BB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C2253F05CA004576C4 /* AppDelegate.swift */; };
+		8AFBEF4225414FB70031BB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C2253F05CA004576C4 /* AppDelegate.swift */; };
+		8AFBEF44254155700031BB32 /* FetchDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFBEF43254155700031BB32 /* FetchDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +87,8 @@
 		8ADA07E6253F05CD004576C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ADA07F5253F07AE004576C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8AF097B525406697009085DF /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8AFBEF2B254148940031BB32 /* ViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTestCase.swift; sourceTree = "<group>"; };
+		8AFBEF43254155700031BB32 /* FetchDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				8ADA07D9253F05CD004576C4 /* ProficiencyExerciseTests.swift */,
+				8AFBEF43254155700031BB32 /* FetchDataTest.swift */,
 				8ADA07DB253F05CD004576C4 /* Info.plist */,
 			);
 			path = ProficiencyExerciseTests;
@@ -183,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				8ADA07E4253F05CD004576C4 /* ProficiencyExerciseUITests.swift */,
+				8AFBEF2B254148940031BB32 /* ViewControllerTestCase.swift */,
 				8ADA07E6253F05CD004576C4 /* Info.plist */,
 			);
 			path = ProficiencyExerciseUITests;
@@ -361,7 +389,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFBEF4125414FB60031BB32 /* AppDelegate.swift in Sources */,
+				8AFBEF3D25414FAB0031BB32 /* ViewController.swift in Sources */,
+				8AFBEF3525414F9B0031BB32 /* UIView+Extension.swift in Sources */,
+				8AFBEF2D25414EA90031BB32 /* FactsViewModel.swift in Sources */,
+				8AFBEF3725414F9E0031BB32 /* UIImageView.swift in Sources */,
 				8ADA07DA253F05CD004576C4 /* ProficiencyExerciseTests.swift in Sources */,
+				8AFBEF2F25414F760031BB32 /* FactsModel.swift in Sources */,
+				8AFBEF44254155700031BB32 /* FetchDataTest.swift in Sources */,
+				8AFBEF3325414F960031BB32 /* Reachability.swift in Sources */,
+				8AFBEF3F25414FB10031BB32 /* SceneDelegate.swift in Sources */,
+				8AFBEF3125414F920031BB32 /* Utils.swift in Sources */,
+				8AFBEF3925414FA20031BB32 /* FactsTableViewCell.swift in Sources */,
+				8AFBEF3B25414FA60031BB32 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +409,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFBEF3825414F9F0031BB32 /* UIImageView.swift in Sources */,
+				8AFBEF3225414F930031BB32 /* Utils.swift in Sources */,
+				8AFBEF3625414F9B0031BB32 /* UIView+Extension.swift in Sources */,
+				8AFBEF2E25414EAA0031BB32 /* FactsViewModel.swift in Sources */,
+				8AFBEF3E25414FAC0031BB32 /* ViewController.swift in Sources */,
+				8AFBEF3425414F970031BB32 /* Reachability.swift in Sources */,
+				8AFBEF3C25414FA70031BB32 /* Constants.swift in Sources */,
+				8AFBEF3025414F770031BB32 /* FactsModel.swift in Sources */,
+				8AFBEF4225414FB70031BB32 /* AppDelegate.swift in Sources */,
+				8AFBEF3A25414FA30031BB32 /* FactsTableViewCell.swift in Sources */,
+				8AFBEF2C254148940031BB32 /* ViewControllerTestCase.swift in Sources */,
 				8ADA07E5253F05CD004576C4 /* ProficiencyExerciseUITests.swift in Sources */,
+				8AFBEF4025414FB20031BB32 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,11 +572,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProficiencyExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tech.ProficiencyExercise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.ProficiencyExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,11 +590,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProficiencyExercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tech.ProficiencyExercise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.ProficiencyExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
