@@ -9,16 +9,14 @@
 import Foundation
 
 public class Utils: NSObject {
-    
-    //Parse JSON
-    func parseJson(completionHandler: @escaping ([Rows]?,String?) -> ()) {
+    static func apiWebSerciceCall(completionHandler: @escaping ([Rows]?, String?) -> ()) {
         let url = Constants.jsonURL
         let urlObj = URL(string: url)!
-        _ = URLSession.shared.dataTask(with: urlObj) {(data, responds, Error) in
+        _ = URLSession.shared.dataTask(with: urlObj) {(data, responds, error) in
             guard let data = data else { return }
             guard let string = String(data: data, encoding: String.Encoding.isoLatin1) else { return }
             guard let properData = string.data(using: .utf8, allowLossyConversion: true) else { return }
-            do{
+            do {
                 let jsonResult = try JSONDecoder().decode(Response.self, from: properData)
                 let rowArray = jsonResult.rows
                 var finalRowArray = [Rows]()
@@ -28,9 +26,8 @@ public class Utils: NSObject {
                     }
                 }
                 let rowTitle = jsonResult.title
-                completionHandler(finalRowArray,rowTitle ?? "")
-            }
-            catch let error {
+                completionHandler(finalRowArray, rowTitle ?? "")
+            } catch let error {
                 print(error)
             }
         }.resume()

@@ -9,14 +9,12 @@
 import Foundation
 import UIKit
 
-
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }        
         // set initial image to nil so it doesn't use the image from a reused cell
         image = nil
-        
         // check if the image is already in the cache
         if let imageToCache = imageCache.object(forKey: link as NSString) {
             self.image = imageToCache
@@ -30,7 +28,6 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil
                 else { return }
-            
             DispatchQueue.main.async {
                 // create UIImage
                 let imageToCache = UIImage(data: data)

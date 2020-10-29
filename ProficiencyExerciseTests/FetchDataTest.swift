@@ -29,19 +29,13 @@ class FetchDataTest: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
     func testFetchData() {
-        let utils = Utils()
-
         let exp = expectation(description: "server fetch")
-        utils.parseJson(completionHandler: {
-            data, title in
+        Utils.apiWebSerciceCall(completionHandler: { (data, title) in
             XCTAssertTrue(data!.count > 0, "Data shouldn't be empty")
             exp.fulfill()
         })
-        
-        waitForExpectations(timeout: 15, handler: {
-            (errors) in
+        waitForExpectations(timeout: 15, handler: { (errors) in
             print(errors?.localizedDescription as Any)
         })
     }

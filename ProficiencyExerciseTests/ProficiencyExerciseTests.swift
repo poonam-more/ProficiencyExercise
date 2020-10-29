@@ -30,12 +30,16 @@ class ProficiencyExerciseTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
     func testFactsViewModel() {
-        let facts = Rows(title: "Housing", description: "Warmer than you might you think", imageHref: "")
-        let factsViewModel = FactsViewModel(rows: facts)
-        XCTAssertEqual(facts.title,factsViewModel.factTitle)
-        XCTAssertEqual(facts.description, factsViewModel.factDescription)
+        let expectation = self.expectation(
+             description: "Fetch API Data")
+           let viewModel = FactsViewModel()
+           viewModel.factsTitle.bind {
+             if $0.caseInsensitiveCompare("About Canada") == .orderedSame {
+               expectation.fulfill()
+             }
+           }
+           waitForExpectations(timeout: 8, handler: nil)
     }
 
 }

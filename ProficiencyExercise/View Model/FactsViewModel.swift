@@ -8,14 +8,19 @@
 
 import Foundation
 
-struct FactsViewModel {
-    let factTitle: String?
-    let factDescription: String?
-    let factimage: String?
-    
-    init(rows:Rows) {
-        self.factTitle = rows.title
-        self.factDescription = rows.description
-        self.factimage = rows.imageHref
+class FactsViewModel {
+    let factsArray  = Binder([])
+    let factsTitle = Binder(" ")
+    let isLoading = Binder(true)
+    init() {
+        fetchWeatherForLocation()
+    }
+    private func fetchWeatherForLocation() {
+        Utils.apiWebSerciceCall(completionHandler: { (factsData, title) in
+            guard let factsData = factsData else { return }
+            self.factsTitle.value = title!
+            self.factsArray.value = factsData.map({return $0})
+            self.isLoading.value = false
+        })
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class FactsTableViewCell: UITableViewCell {
     
-    //MARK: Cell Elements intialization
+    // MARK: - Cell Elements intialization
      let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor.green
@@ -19,7 +19,6 @@ class FactsTableViewCell: UITableViewCell {
         lbl.textAlignment = .left
         return lbl
     }()
-    
      let descriptionLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor.black
@@ -30,43 +29,57 @@ class FactsTableViewCell: UITableViewCell {
         lbl.sizeToFit()
         return lbl
     }()
-    
      var factsImage: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
     }()
-    
-    //MARK: -Initializer
+    // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(factsImage)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         
-        factsImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 90, height: 90, enableInsets: false)
-        titleLabel.anchor(top: topAnchor, left: factsImage.rightAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
-        descriptionLabel.anchor(top: titleLabel.bottomAnchor, left: factsImage.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 50, paddingRight: 20, width: frame.size.width , height: 0, enableInsets: false)
-        
+        setConstraintsToViews()
     }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
     }
-    //MARK: -Placeholder image
+    // MARK: - Placeholder image
     override func prepareForReuse() {
         factsImage.image = UIImage(named: "placeholder")
     }
-    
-    //MARK: Data population of cell
-    var factViewModel: FactsViewModel! {
+    func setConstraintsToViews() {
+        //Image constraits setup
+        factsImage.topAnchor(top: topAnchor, padding: -20, enableInsets: false)
+        factsImage.bottomAnchor(bottom: bottomAnchor, padding: -20, enableInsets: false)
+        factsImage.leftAnchor(left: leftAnchor, padding: 5)
+        factsImage.rightAnchor(right: nil, padding: 0)
+        factsImage.widthAnchor(width: 80)
+        factsImage.heightAnchor(height: 80)
+        //Title label constraits setup
+        titleLabel.topAnchor(top: topAnchor, padding: 20, enableInsets: false)
+        titleLabel.bottomAnchor(bottom: nil, padding: 0, enableInsets: false)
+        titleLabel.leftAnchor(left: factsImage.rightAnchor, padding: 10)
+        titleLabel.rightAnchor(right: nil, padding: 0)
+        titleLabel.widthAnchor(width: 0)
+        titleLabel.heightAnchor(height: 0)
+        //Description label contraints setup
+        descriptionLabel.topAnchor(top: titleLabel.bottomAnchor, padding: 0, enableInsets: false)
+        descriptionLabel.bottomAnchor(bottom: bottomAnchor, padding: 20, enableInsets: false)
+        descriptionLabel.leftAnchor(left: factsImage.rightAnchor, padding: 10)
+        descriptionLabel.rightAnchor(right: rightAnchor, padding: 20)
+        descriptionLabel.widthAnchor(width: 0) //frame.size.width)
+        descriptionLabel.heightAnchor(height: 0)
+    }
+    // MARK: Data population of cell
+    var rowsModel: Rows! {
         didSet {
-            factsImage.downloaded(from: factViewModel.factimage ?? "", contentMode: .scaleAspectFit)
-            titleLabel.text = factViewModel.factTitle
-            descriptionLabel.text = factViewModel.factDescription
-            
+            factsImage.downloaded(from: rowsModel.imageHref ?? "", contentMode: .scaleAspectFit)
+            titleLabel.text = rowsModel.title
+            descriptionLabel.text = rowsModel.description
         }
     }
 }

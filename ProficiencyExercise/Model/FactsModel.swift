@@ -8,14 +8,13 @@
 
 import Foundation
 
-
-struct Response:Decodable {
-    let rows:[Rows]
+struct Response: Decodable {
+    let rows: [Rows]
     let title: String?
 }
 
-struct Rows:Decodable {
-    let title:String?
-    let description:String?
-    let imageHref:String?
+struct Rows: Decodable {
+    let title: String?
+    let description: String?
+    let imageHref: String?
 }
