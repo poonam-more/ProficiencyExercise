@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     let factsTableView = UITableView()
     var safeArea: UILayoutGuide!
     var factsViewModel = FactsViewModel()
@@ -63,9 +62,10 @@ class ViewController: UIViewController {
         factsTableView.dataSource = self
         factsTableView.register(FactsTableViewCell.self, forCellReuseIdentifier: Constants.reuseIdOfTableView)
         factsTableView.translatesAutoresizingMaskIntoConstraints = false
-        let viewsDictionary = ["table": factsTableView]
+        let views = ["table": factsTableView]
 
-        view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "H:|[table]|", options: [], metrics: nil, views: viewsDictionary))
+       let visual = "H:|[table]|"
+        view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: visual, metrics: nil, views: views))
 
         factsTableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         factsTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    //MARK: - Pull to refresh TableView
+    // MARK: - Pull to refresh TableView
     @objc func refresh(_ sender: AnyObject) {
         if Reachability.isConnectedToNetwork() {
             initBindings()
@@ -95,13 +95,14 @@ class ViewController: UIViewController {
             self.refreshControl.endRefreshing()
         }
     }
-    //MARK: - Setup Alert Message
+    // MARK: - Setup Alert Message
     func setUpAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Proficiency Exercise", message: message, preferredStyle: UIAlertController.Style.alert)
+        let style = UIAlertController.Style.alert
+        let alert = UIAlertController(title: "Proficiency Exercise", message: message, preferredStyle: style)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    //MARK: - Setup Progress
+    // MARK: - Setup Progress
     func setUpProgress() {
         indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -111,16 +112,22 @@ class ViewController: UIViewController {
     }
 }
 
-//MARK: - TableView Delegate and DataSource Methods
+// MARK: - TableView Delegate and DataSource Methods
 extension ViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowsArray.count
     }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentRow = rowsArray[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIdOfTableView, for: indexPath) as? FactsTableViewCell
+        let reuseId = Constants.reuseIdOfTableView
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? FactsTableViewCell
         cell!.selectionStyle = .none
         cell!.rowsModel = currentRow
         return cell!
     }
+}
+extension ViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableView.automaticDimension
+  }
 }

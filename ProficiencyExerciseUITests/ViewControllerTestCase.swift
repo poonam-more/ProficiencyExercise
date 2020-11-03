@@ -42,7 +42,8 @@ class ViewControllerTestCase: XCTestCase {
         viewControllerUnderTest.factsTableView.reloadData()
         let  countRow: Int =  tableView.numberOfRows(inSection: 0)
         if countRow > 0 {
-            let cell = tableView.dataSource?.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? FactsTableViewCell
+          let indexPath = IndexPath(row: 0, section: 0)
+            let cell = tableView.dataSource?.tableView(tableView, cellForRowAt: indexPath) as? FactsTableViewCell
             XCTAssertEqual(cell!.titleLabel.text!, "Beavers")
         }
     }

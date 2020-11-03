@@ -49,6 +49,8 @@
 		8AFBEF4125414FB60031BB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C2253F05CA004576C4 /* AppDelegate.swift */; };
 		8AFBEF4225414FB70031BB32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA07C2253F05CA004576C4 /* AppDelegate.swift */; };
 		8AFBEF44254155700031BB32 /* FetchDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFBEF43254155700031BB32 /* FetchDataTest.swift */; };
+		8AFC4C202551605900BA8B59 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EEEB42549BDC000B9258C /* UIDevice.swift */; };
+		8AFC4C212551605A00BA8B59 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EEEB42549BDC000B9258C /* UIDevice.swift */; };
 		9EF1EA3E8674094CC2E6F83C /* Pods_ProficiencyExerciseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6ED11324C1472DCFC1E289 /* Pods_ProficiencyExerciseTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -544,6 +546,7 @@
 				8AFBEF3125414F920031BB32 /* Utils.swift in Sources */,
 				8AFBEF3925414FA20031BB32 /* FactsTableViewCell.swift in Sources */,
 				8AFBEF3B25414FA60031BB32 /* Constants.swift in Sources */,
+				8AFC4C202551605900BA8B59 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +567,7 @@
 				8AFBEF3A25414FA30031BB32 /* FactsTableViewCell.swift in Sources */,
 				8AFBEF2C254148940031BB32 /* ViewControllerTestCase.swift in Sources */,
 				8ADA07E5253F05CD004576C4 /* ProficiencyExerciseUITests.swift in Sources */,
+				8AFC4C212551605A00BA8B59 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

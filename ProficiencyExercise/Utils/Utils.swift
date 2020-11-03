@@ -9,10 +9,10 @@
 import Foundation
 
 public class Utils: NSObject {
-    static func apiWebSerciceCall(completionHandler: @escaping ([Rows]?, String?) -> ()) {
+    static func apiWebSerciceCall(completionHandler: @escaping ([Rows]?, String?) -> Void) {
         let url = Constants.jsonURL
         let urlObj = URL(string: url)!
-        _ = URLSession.shared.dataTask(with: urlObj) {(data, responds, error) in
+      _ = URLSession.shared.dataTask(with: urlObj) {(data, _, _) in
             guard let data = data else { return }
             guard let string = String(data: data, encoding: String.Encoding.isoLatin1) else { return }
             guard let properData = string.data(using: .utf8, allowLossyConversion: true) else { return }
@@ -20,15 +20,14 @@ public class Utils: NSObject {
                 let jsonResult = try JSONDecoder().decode(Response.self, from: properData)
                 let rowArray = jsonResult.rows
                 var finalRowArray = [Rows]()
+              if rowArray.count > 0 {
                 for item in rowArray {
-                    if (item.title?.count ?? 0 > 0) {
-                        finalRowArray.append(item)
-                    }
+                    finalRowArray.append(item)
                 }
+              }
                 let rowTitle = jsonResult.title
                 completionHandler(finalRowArray, rowTitle ?? "")
-            } catch let error {
-                print(error)
+            } catch {
             }
         }.resume()
     }

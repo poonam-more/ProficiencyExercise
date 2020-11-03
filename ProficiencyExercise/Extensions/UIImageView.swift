@@ -11,8 +11,8 @@ import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }        
+func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
         // set initial image to nil so it doesn't use the image from a reused cell
         image = nil
         // check if the image is already in the cache

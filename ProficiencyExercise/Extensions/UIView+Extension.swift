@@ -18,7 +18,6 @@ extension UIView {
         }
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
-            print("constant = \(padding+topInset)")
             self.topAnchor.constraint(equalTo: top, constant: padding+topInset).isActive = true
         }
     }

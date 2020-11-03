@@ -31,12 +31,11 @@ class FetchDataTest: XCTestCase {
     }
     func testFetchData() {
         let exp = expectation(description: "server fetch")
-        Utils.apiWebSerciceCall(completionHandler: { (data, title) in
+        Utils.apiWebSerciceCall(completionHandler: { (data, _) in
             XCTAssertTrue(data!.count > 0, "Data shouldn't be empty")
             exp.fulfill()
         })
-        waitForExpectations(timeout: 15, handler: { (errors) in
-            print(errors?.localizedDescription as Any)
+        waitForExpectations(timeout: 15, handler: { (_) in
         })
     }
 
