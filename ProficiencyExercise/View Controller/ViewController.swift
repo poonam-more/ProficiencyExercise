@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         } else {
             setUpAlertMessage("No internet connection.")
         }
+        
+        print("View Did Load")
     }
     // MARK: - View Model Binding
     func initBindings() {
